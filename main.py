@@ -1,9 +1,17 @@
 def on_received_string(receivedString):
     if receivedString == "move":
-        music.play_melody("C D E D C - - - ", 120)
+        led.toggle(1, 1)
     elif receivedString == "sound":
-        music.play_melody("A A A B",120)
+        led.plot(2, 2)
+    elif receivedString == "sensed":
+        led.toggle(3, 3)
+        led.toggle(0, 0)
+    else:
+        pass
 radio.on_received_string(on_received_string)
+
+radio.set_group(1)
+led.toggle(3, 2)
 
 def on_forever():
     pass
